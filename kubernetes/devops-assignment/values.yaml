@@ -1,0 +1,29 @@
+# Default values for devops-assignment.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 2
+
+namespace: nginx
+
+labels:
+  app: nginx
+
+image:
+  repository: nginx
+  pullPolicy: Latest
+  # Overrides the image tag whose default is the chart appVersion.
+
+nameOverridePod: "devops-nginx"
+nameOverrideContainer: "nginx"
+
+containerPortValue: 80
+
+service:
+  name: "devops-assignment-app-svc"
+  portName: "http"
+  type: NodePort
+  NodePortValue: 30541
+
+ingress:
+  enabled: false
